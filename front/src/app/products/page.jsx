@@ -1,4 +1,4 @@
-import { CardProduct } from './components';
+import CardProduct from './components/CardProduct';
 
 export const fetchProducts = async () => {
     const response = await fetch();
