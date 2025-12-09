@@ -9,6 +9,15 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+// Health check endpoint
+app.get("/", (req, res) => {
+  res.json({ 
+    status: "ok", 
+    message: "Beer E-Commerce API is running",
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.use(router);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

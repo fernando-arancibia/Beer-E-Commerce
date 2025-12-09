@@ -19,7 +19,21 @@ const categoriesToPreLoad: ICategory[] = [
 ];
 
 export const preLoadCategories = async () => {
-    const categories = await CategoryRepository.find();
-    if (!categories.length) await AppDataSource.createQueryBuilder().insert().into(Category).values(categoriesToPreLoad).execute();
-    console.log('Categories preloaded');
+    try {
+        const categories = await CategoryRepository.find();
+        if (!categories.length) {
+            await AppDataSource.createQueryBuilder()
+                .insert()
+                .into(Category)
+                .values(categoriesToPreLoad)
+                .orIgnore() // Ignora si ya existen
+                .execute();
+            console.log('Categories preloaded successfully');
+        } else {
+            console.log('Categories already exist, skipping preload');
+        }
+    } catch (error) {
+        console.error('Error preloading categories:', error);
+        // No lanzamos error para que no bloquee la app
+    }
 }

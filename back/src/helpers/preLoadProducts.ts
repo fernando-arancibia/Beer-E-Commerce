@@ -75,12 +75,21 @@ const productsToPreLoad: IProduct[] = [
 ];
 
 export const preLoadProducts = async () => {
-  const products = await ProductRepository.find();
-  if (!products.length)
-    await AppDataSource.createQueryBuilder()
-      .insert()
-      .into(Product)
-      .values(productsToPreLoad)
-      .execute();
-  console.log("Products preloaded");
+  try {
+    const products = await ProductRepository.find();
+    if (!products.length) {
+      await AppDataSource.createQueryBuilder()
+        .insert()
+        .into(Product)
+        .values(productsToPreLoad)
+        .orIgnore() // Ignora si ya existen
+        .execute();
+      console.log("Products preloaded successfully");
+    } else {
+      console.log("Products already exist, skipping preload");
+    }
+  } catch (error) {
+    console.error("Error preloading products:", error);
+    // No lanzamos error para que no bloquee la app
+  }
 };

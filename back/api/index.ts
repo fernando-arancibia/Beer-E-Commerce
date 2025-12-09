@@ -5,6 +5,7 @@ import { preLoadCategories } from "../src/helpers/preLoadCategories";
 import { preLoadProducts } from "../src/helpers/preLoadProducts";
 
 let isInitialized = false;
+let isPreloaded = false;
 
 const initialize = async () => {
   if (!isInitialized) {
@@ -12,14 +13,22 @@ const initialize = async () => {
       console.log("Initializing database...");
       await AppDataSource.initialize();
       console.log("Database initialized successfully");
-      
-      // Solo precarga en la primera inicialización
-      await preLoadCategories();
-      await preLoadProducts();
-      
       isInitialized = true;
+      
+      // Precarga solo una vez y de forma asíncrona
+      if (!isPreloaded) {
+        isPreloaded = true;
+        // No esperamos, se ejecuta en background
+        Promise.all([
+          preLoadCategories(),
+          preLoadProducts()
+        ]).catch(error => {
+          console.error("Error preloading data:", error);
+        });
+      }
     } catch (error) {
       console.error("Error initializing database:", error);
+      isInitialized = false; // Reset para reintentar
       throw error;
     }
   }
