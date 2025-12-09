@@ -2,10 +2,13 @@ import ProductCard from '@/components/ProductCard';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const fetchProducts = async () => {
     try {
         const response = await fetch(`${API_URL}/products`, {
-            cache: 'no-store'
+            next: { revalidate: 0 }
         });
         if (!response.ok) {
             throw new Error('Failed to fetch products');
