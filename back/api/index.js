@@ -48,7 +48,7 @@ const initialize = async () => {
   }
 };
 
-module.exports = async (req, res) => {
+const handler = async (req, res) => {
   const requestStart = Date.now();
   console.log(`\n📨 Request: ${req.method} ${req.url}`);
   
@@ -90,3 +90,6 @@ module.exports = async (req, res) => {
     return res.status(500).json(errorResponse);
   }
 };
+
+module.exports = handler;
+module.exports.default = handler;
