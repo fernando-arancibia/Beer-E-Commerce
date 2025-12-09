@@ -1,16 +1,16 @@
-import "reflect-metadata";
-import { AppDataSource } from "../src/config/dataSource";
-import app from "../src/server";
+require("reflect-metadata");
+
+const { AppDataSource } = require("../src/config/dataSource");
+const app = require("../src/server").default;
 
 let isInitialized = false;
-let initPromise: Promise<void> | null = null;
+let initPromise = null;
 
 const initialize = async () => {
   console.log("=== VERCEL SERVERLESS START ===");
   console.log("DATABASE_URL exists:", !!process.env.DATABASE_URL);
   console.log("NODE_ENV:", process.env.NODE_ENV);
   
-  // Si ya hay una inicialización en progreso, esperarla
   if (initPromise) {
     console.log("Reusing existing init promise");
     return initPromise;
@@ -33,11 +33,11 @@ const initialize = async () => {
       } catch (error) {
         console.error("❌ Error initializing database:", error);
         console.error("Error details:", {
-          name: error instanceof Error ? error.name : 'Unknown',
-          message: error instanceof Error ? error.message : 'Unknown error',
-          stack: error instanceof Error ? error.stack : 'No stack trace'
+          name: error.name || 'Unknown',
+          message: error.message || 'Unknown error',
+          stack: error.stack || 'No stack trace'
         });
-        initPromise = null; // Reset para reintentar
+        initPromise = null;
         throw error;
       }
     })();
@@ -48,13 +48,11 @@ const initialize = async () => {
   }
 };
 
-// Handler para Vercel
-export default async (req: any, res: any) => {
+module.exports = async (req, res) => {
   const requestStart = Date.now();
   console.log(`\n📨 Request: ${req.method} ${req.url}`);
   
   try {
-    // Timeout de 8 segundos
     const timeoutPromise = new Promise((_, reject) => {
       setTimeout(() => reject(new Error('Database initialization timeout after 8s')), 8000);
     });
@@ -71,9 +69,9 @@ export default async (req: any, res: any) => {
       error: true,
       timestamp: new Date().toISOString(),
       requestDuration: Date.now() - requestStart,
-      message: error instanceof Error ? error.message : "Unknown error",
+      message: error.message || "Unknown error",
       details: {
-        name: error instanceof Error ? error.name : 'Unknown',
+        name: error.name || 'Unknown',
         hasDbUrl: !!process.env.DATABASE_URL,
         nodeEnv: process.env.NODE_ENV
       }
@@ -81,8 +79,7 @@ export default async (req: any, res: any) => {
     
     console.log("Error response:", JSON.stringify(errorResponse, null, 2));
     
-    // Si falla, intenta responder igualmente
-    if (error instanceof Error && error.message.includes('timeout')) {
+    if (error.message && error.message.includes('timeout')) {
       return res.status(503).json({ 
         ...errorResponse,
         error: "Service Temporarily Unavailable",
