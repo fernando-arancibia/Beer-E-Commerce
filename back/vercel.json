@@ -2,8 +2,12 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/seed",
+      "destination": "/api/seed"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/api"
+      "destination": "/api/index"
     }
   ]
 }
