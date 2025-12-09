@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const PORT: number = Number(process.env.PORT) || 3001;
+export const DATABASE_URL: string | undefined = process.env.DATABASE_URL;
 export const DB_NAME: string = process.env.DB_NAME || "proyectom4";
 export const DB_USER: string = process.env.DB_USER || "postgres";
 export const DB_PASSWORD: string = process.env.DB_PASSWORD || "admin";
