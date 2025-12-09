@@ -15,7 +15,7 @@ export const AppDataSource = new DataSource(
         ssl: {
           rejectUnauthorized: false,
         },
-        synchronize: true, // ⚠️ Importante: false en producción
+        synchronize: false, // ⚠️ Importante: false en producción
         logging: false,
         entities: [User, Credential, Order, Product, Category],
         subscribers: [],
@@ -30,7 +30,7 @@ export const AppDataSource = new DataSource(
   password: DB_PASSWORD,
   database: DB_NAME,
   synchronize: true,
-  //dropSchema: true,
+  dropSchema: false,
   logging: false,
   entities: [User, Credential, Order, Product, Category],
   subscribers: [],
