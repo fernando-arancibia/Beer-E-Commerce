@@ -57,7 +57,7 @@ export default function LoginForm () {
                 setLoginForm(formInitialState)
                 router.push("/home")
                 setLogin(loginInfo.user, loginInfo.token);
-             } catch (error) {
+             } catch {
                 Swal.fire({title:"Hubo un error en al iniciar sesion",
                             confirmButtonColor: "#f59e0b", // amber-500
              })

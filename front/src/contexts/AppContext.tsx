@@ -56,8 +56,9 @@ export default function AppContextProvider ({
     };
     
     const addProductToCart = (product:IProduct) => {
-        !isIncludedInCart(product.id) &&
-        setCart([...cart, product]);
+        if (!isIncludedInCart(product.id)) {
+            setCart([...cart, product]);
+        }
     };
 
     const isIncludedInCart = (id: number) => {
@@ -98,7 +99,7 @@ export default function AppContextProvider ({
 
         setUser(JSON.parse(user));
         setToken(token);
-    }, []);
+    }, [logout]);
 
     return (<AppContext.Provider 
         value= {{

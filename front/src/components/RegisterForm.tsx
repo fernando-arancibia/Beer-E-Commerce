@@ -151,7 +151,7 @@ export default function RegisterForm () {
             Swal.fire("Registro completado con exito");
             console.log(registerForm);
 
-        } catch (error) {
+        } catch {
             Swal.fire("Hubo un error en el registro");
         }
 

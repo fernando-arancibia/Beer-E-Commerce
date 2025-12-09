@@ -1,4 +1,5 @@
 import { IProductCardProps } from "@/interfaces/IProductCardProps"
+import Image from 'next/image'
 
 
 
@@ -9,9 +10,11 @@ export default function ProductCard ({ name, price, img}: IProductCardProps) { /
             <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 group-hover:-translate-y-2">
                 {/* Product Image */}
                         <div className="aspect-square relative overflow-hidden bg-gray-50">
-                            <img 
+                            <Image 
                                 src={img} 
-                                 alt={name}
+                                alt={name}
+                                width={400}
+                                height={400}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 />  
                              {/* Overlay on hover */}

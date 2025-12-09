@@ -4,6 +4,7 @@ import { useAppContext } from "@/contexts/AppContext";
 import { IOrder } from "@/interfaces/Iorders";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Image from 'next/image';
 
 export default function UserOrders () {
     const { token } = useAppContext();
@@ -144,11 +145,12 @@ export default function UserOrders () {
                                                         return (
                                                             <div key={index} className="bg-amber-50/50 rounded-lg p-4 border border-amber-200/30 hover:bg-amber-50 hover:border-amber-300/50 transition-all duration-200 hover:shadow-sm">
                                                                 <div className="flex items-start gap-4">
-                                                                    <div className="w-32 h-32 bg-white rounded-lg border border-amber-200/50 flex-shrink-0 overflow-hidden">
-                                                                        <img
+                                                                    <div className="w-32 h-32 bg-white rounded-lg border border-amber-200/50 flex-shrink-0 overflow-hidden relative">
+                                                                        <Image
                                                                             src={prod.image}
                                                                             alt={prod.name}
-                                                                            className="w-full h-full object-cover"
+                                                                            fill
+                                                                            className="object-cover"
                                                                         />
                                                                     </div>
                                                                     <div className="flex-1 min-w-0">
