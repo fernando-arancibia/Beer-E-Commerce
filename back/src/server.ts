@@ -5,7 +5,12 @@ import morgan from "morgan";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://beer-e-commerce-front.vercel.app', // URL de producción
+    'http://localhost:3000' // Desarrollo local
+  ]
+}));
 app.use(express.json());
 app.use(morgan("dev"));
 
