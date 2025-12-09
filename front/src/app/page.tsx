@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function Page() {
   return (
@@ -45,9 +46,9 @@ export default function Page() {
                 >
                   <source src="/beer.mp4" type="video/mp4" />
                   {/* Fallback image if video doesn't load */}
-                  <img
-                    src="/cervezas.png"
-                    alt="Premium Beer Collection"
+                  <Image
+                    src={"/cervezas.png"}
+                    alt={"Premium Beer Collection"}
                     className="w-full h-full object-cover"
                   />
                 </video>

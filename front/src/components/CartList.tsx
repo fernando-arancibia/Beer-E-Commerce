@@ -5,6 +5,8 @@ import EmptyCart from "./EmptyCart";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
+
 
 
 export default function CartList() {
@@ -120,7 +122,7 @@ export default function CartList() {
           <div className="p-6 flex gap-6">
             {/* Imagen a la izquierda - Estilo Home */}
             <div className="flex-shrink-0 w-32 h-32 relative overflow-hidden bg-gray-50 rounded-xl">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

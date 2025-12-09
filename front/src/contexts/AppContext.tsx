@@ -4,7 +4,7 @@ import { IAppContext } from "@/interfaces/IAppContext";
 import { IProduct } from "@/interfaces/IProduct";
 import { IUser } from "@/interfaces/IUser";
 import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 
 
 
@@ -46,14 +46,14 @@ export default function AppContextProvider ({
     };
 
     
-    const logout = () => {
+    const logout = useCallback(() => {
         localStorage.removeItem("user");
         localStorage.removeItem("token");
         setUser(null);
         setToken(null);
         router.push("/"); // Redirigir al home
         
-    };
+    }, [router]);
     
     const addProductToCart = (product:IProduct) => {
         if (!isIncludedInCart(product.id)) {

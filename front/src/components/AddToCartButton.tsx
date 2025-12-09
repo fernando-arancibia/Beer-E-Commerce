@@ -2,7 +2,7 @@
 
 import { useAppContext } from "@/contexts/AppContext";
 import { IProduct } from "@/interfaces/IProduct";
-import Link from "next/link";
+
 
 export default function AddToCartButton ({product}:{product:IProduct}) {
     const {addProductToCart, isIncludedInCart, removeProductFromCart, authAction} = 
@@ -11,7 +11,7 @@ export default function AddToCartButton ({product}:{product:IProduct}) {
     const productIncluded = isIncludedInCart(product.id);
 
     const clickHandler = () => {
-        productIncluded 
+        return productIncluded 
         ? authAction(() => {removeProductFromCart(product.id);
         })
         : authAction(() => {addProductToCart(product);

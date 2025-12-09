@@ -1,3 +1,5 @@
+import { CardProduct } from './components';
+
 export const fetchProducts = async () => {
     const response = await fetch();
     const products = await response.json();

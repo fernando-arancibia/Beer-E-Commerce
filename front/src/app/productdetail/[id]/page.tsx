@@ -7,6 +7,7 @@ import { IProductDetailPageProps } from "@/interfaces/IProductDetail";
 import Link from "next/link";
 import ProductNotFound from "@/components/ProductNotFound";
 import AddToCartButton from "@/components/AddToCartButton";
+import Image from 'next/image';
 
 
 export default async function ProductDetailPage({ params }: IProductDetailPageProps) {
@@ -94,7 +95,7 @@ export default async function ProductDetailPage({ params }: IProductDetailPagePr
                             <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 group-hover:-translate-y-2">
                                 {/* Product Image Container */}
                                 <div className="aspect-square relative overflow-hidden bg-gray-50">
-                                    <img
+                                    <Image
                                         src={product.image}
                                         alt={product.name}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
