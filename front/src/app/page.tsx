@@ -16,7 +16,7 @@ export default function Page() {
         </div>
 
         {/* Main Hero Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 md:gap-16 py-8 md:py-0">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-8 md:gap-16 py-8 md:py-0">
           
           <div className="text-center max-w-5xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
