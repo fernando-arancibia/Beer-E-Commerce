@@ -66,7 +66,7 @@ export default function LoginForm () {
     };
     
     return (
-        <div className="flex items-center justify-center p-4">
+        <div className="flex items-center justify-center pt-10">
             <form className="w-full max-w-md bg-white backdrop-blur-lg rounded-3xl shadow-2xl border border-amber-200/20 p-8" onSubmit={submitHandler}>
                 {/* Header */}
                 <div className="text-center mb-8">

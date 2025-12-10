@@ -44,7 +44,7 @@ export default function RegisterForm () {
     }
     //registro post
     const postRegister = async (registerDto :RegisterDTO) => { 
-        const result = await axios.post(`http://localhost:3001/users/register`, registerDto);
+        const result = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, registerDto);
         return result.data;
     };  
 
@@ -158,7 +158,7 @@ export default function RegisterForm () {
     
     };
     return (
-        <div className="flex items-center justify-center p-4">
+        <div className="flex items-center justify-center pt-10">
             <form className="w-full max-w-md bg-white backdrop-blur-lg rounded-3xl shadow-2xl border border-amber-200/20 p-8" onSubmit={submitHandler}>
                 {/* Header */}
                 <div className="text-center mb-8">
