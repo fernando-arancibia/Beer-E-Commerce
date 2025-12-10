@@ -19,7 +19,7 @@ export default async function HomePage() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,158,11,0.1),transparent_50%)]"></div>
                 </div>
                 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
                     <div className="mb-6">
                         <span className="inline-block px-4 py-2 bg-amber-500/20 text-amber-600 rounded-full text-sm font-medium border border-amber-500/30">
                             ✨ CATÁLOGO PREMIUM
@@ -60,7 +60,7 @@ export default async function HomePage() {
 
             {/* Filter/Search Section */}
             <section className="py-8 bg-gray-50/50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="flex items-center space-x-4">
                             <span className="text-gray-600 font-medium">Mostrando {products.length} productos</span>
@@ -71,8 +71,8 @@ export default async function HomePage() {
 
             {/* Products Grid Section */}
             <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
                         
                         {products.map((product) => {
                             return (
@@ -87,7 +87,7 @@ export default async function HomePage() {
 
             {/* Call to Action Section */}
             <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
-                <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto text-center px-6 sm:px-8 lg:px-12">
                     <div className="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-2xl p-8 border border-amber-500/20">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                             ¿No encontraste lo que buscabas?

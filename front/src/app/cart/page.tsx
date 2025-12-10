@@ -11,7 +11,7 @@ export default function CartPage() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,158,11,0.1),transparent_50%)]"></div>
                 </div>
                 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
                     <div className="mb-6">
                         <span className="inline-block px-4 py-2 bg-amber-500/20 text-amber-600 rounded-full text-sm font-medium border border-amber-500/30">
                             🛒 TU CARRITO PREMIUM
@@ -52,7 +52,7 @@ export default function CartPage() {
 
             {/* Cart Info Bar - Similar to Home Filter Section */}
             <section className="py-8 bg-gray-50/50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="flex items-center space-x-4">
                             <span className="text-gray-600 font-medium">Tu selección premium</span>
@@ -80,7 +80,7 @@ export default function CartPage() {
             </section>
 
             {/* Main Content - Maintaining original structure with Landing styles */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
                 <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
                     <div className="p-8">
                         <CartList />

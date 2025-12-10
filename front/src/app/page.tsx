@@ -69,7 +69,7 @@ export default function Page() {
 
           {/* Content Section */}
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-lg sm:text-xl md:text-2xl text-blue-600 mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-blue-600 mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto px-2">
               Descubre una selección exclusiva de cervezas premium. 
               <span className="block mt-2 text-amber-600 font-semibold">
                 Calidad excepcional, experiencia única.
@@ -77,7 +77,7 @@ export default function Page() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12 justify-center px-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12 justify-center px-2">
               <Link href="/home" className="w-full sm:w-auto">
                 <button className="w-full group relative px-6 md:px-8 py-3 md:py-4 bg-amber-500 hover:bg-amber-400 text-blue-700 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/25">
                   <span className="flex items-center justify-center gap-2">
@@ -97,7 +97,7 @@ export default function Page() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-8 pt-4 md:pt-5 border-t border-gray-300 max-w-2xl mx-auto mb-6 md:mb-9 px-4">
+            <div className="grid grid-cols-3 gap-3 md:gap-8 pt-4 md:pt-5 border-t border-gray-300 max-w-2xl mx-auto mb-6 md:mb-9 px-2">
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-amber-600">500+</div>
                 <div className="text-xs md:text-sm text-gray-500">Productos</div>
@@ -118,7 +118,7 @@ export default function Page() {
 
       {/* Section Experiencia premium*/}
       <section className="py-12 md:py-20 bg-gradient-to-br from-blue-400 via-gray-500 to-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6">
               EXPERIENCIA
@@ -172,7 +172,7 @@ export default function Page() {
       
 
       {/* Newsletter & CTA Section */}
-        <div className="max-w-7xl mt-6 md:mt-8 mx-auto px-4 sm:px-6 lg:px-8 pb-8 md:pb-0">
+        <div className="max-w-7xl mt-6 md:mt-8 mx-auto px-6 sm:px-8 lg:px-12 pb-8 md:pb-0">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Newsletter */}
             <div>
